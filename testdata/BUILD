@@ -21,6 +21,10 @@ load(
     "container_image",
     "container_layer",
 )
+load(
+    "//rpms:rpms.bzl",
+    "rpms_image",
+)
 load("//testdata:utils.bzl", "generate_deb")
 
 exports_files(["pause.tar"])
@@ -796,6 +800,12 @@ java_library(
     name = "java_image_library",
     srcs = ["Library.java"],
     deps = ["@com_google_guava_guava//jar"],
+)
+
+rpms_image(
+    name = "rpm_image",
+    base = ":workdir_with_tar_base",
+    rpms = ["iptables-1.6.2-3.fc27.i686.rpm"],
 )
 
 java_image(

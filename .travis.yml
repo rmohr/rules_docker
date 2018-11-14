@@ -24,6 +24,8 @@ addons:
         key_url: 'https://bazel.build/bazel-release.pub.gpg'
     packages:
       - bazel
+      - rpm2cpio
+      - rpm
 
 install:
   - go get -u github.com/bazelbuild/buildifier/buildifier

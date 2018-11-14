@@ -44,6 +44,12 @@ container_test(
     image = ":deb_image_with_dpkgs",
 )
 
+container_test(
+    name = "rpm_image_test",
+    configs = ["//tests/docker/configs:rpm_image.yaml"],
+    image = "//testdata:rpm_image",
+)
+
 container_image(
     name = "set_cmd",
     base = "@distroless_fixed_id//image",
